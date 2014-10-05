@@ -382,7 +382,10 @@ $(function() {
 				areaModels.push(area);
 				//3列目以降の処理
 				for (var r = 3; r < 3 + MaxDescription; r++) {
-					if (area_days_label[r]) {
+					//MOD START #2 row[r]収集日が未指定の場合は追加しない
+//					if (area_days_label[r]) {
+					if (area_days_label[r] && row[r]) {
+					//MOD E N D #2
 						var trash = new TrashModel(area_days_label[r], row[r], remarks);
 						area.trash.push(trash);
 					}

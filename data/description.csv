@@ -1,5 +1,7 @@
 label,sublabel,description,styles,bgcolor
 燃えないごみ,燃えないごみ,,img/moyasanai02.svg,#733b96
 資源ごみA,資源ごみ,,img/shigen02.svg,#77ae1f
+資源ごみB,資源ごみ,,img/shigen02.svg,#77ae1f
 燃えるごみ,燃えるごみ,,img/moyasu02.svg,#ea3b13
-プラ,プラ,,img/bin02.svg,#2dc7aa
+プラ,プラ,,img/bin02.svg,#bbe400
+空きびん,空きびん,,,#2dc7aa

@@ -586,9 +586,15 @@ $(function() {
 					'<div class="left-day">' + leftDayText + '</div>' +
 					'<div class="accordion-table" >';
 				if (ableSVG && SVGLabel) {
-					accordionHTML += '<img src="' + description.styles + '" alt="' + description.label + '"  />';
+					//MOD START #2 アコーディオンパネルに表示する文字をsublabelに変更する
+					//accordionHTML += '<img src="' + description.styles + '" alt="' + description.label + '"  />';
+					accordionHTML += '<img src="' + description.styles + '" alt="' + description.sublabel + '"  />';
+					//MOD E N D #2
 				} else {
-					accordionHTML += '<p class="text-center">' + description.label + "</p>";
+					//MOD START #2 アコーディオンパネルに表示する文字をsublabelに変更する					
+					//accordionHTML += '<p class="text-center">' + description.label + "</p>";
+					accordionHTML += '<p class="text-center">' + description.sublabel + "</p>";
+					//MOD E N D #2
 				}
 				accordionHTML += "</div>" +
 				'<h6><p class="text-left date">' + dateLabel + "</p></h6>" +

@@ -591,12 +591,20 @@ $(function() {
 				if (ableSVG && SVGLabel) {
 					//MOD START #2 アコーディオンパネルに表示する文字をsublabelに変更する
 					//accordionHTML += '<img src="' + description.styles + '" alt="' + description.label + '"  />';
-					accordionHTML += '<img src="' + description.styles + '" alt="' + description.sublabel + '"  />';
+					if (description.sublabel) {
+						accordionHTML += '<img src="' + description.styles + '" alt="' + description.sublabel + '"  />';
+					} else {
+						accordionHTML += '<img src="' + description.styles + '" alt="' + description.label + '"  />';
+					}
 					//MOD E N D #2
 				} else {
 					//MOD START #2 アコーディオンパネルに表示する文字をsublabelに変更する					
 					//accordionHTML += '<p class="text-center">' + description.label + "</p>";
-					accordionHTML += '<p class="text-center">' + description.sublabel + "</p>";
+					if (description.sublabel) {
+						accordionHTML += '<p class="text-center">' + description.sublabel + "</p>";
+					} else {
+						accordionHTML += '<p class="text-center">' + description.label + "</p>";						
+					}
 					//MOD E N D #2
 				}
 				accordionHTML += "</div>" +

@@ -18,11 +18,23 @@ var AreaModel = function() {
 	/**
 	 * 各ゴミのカテゴリに対して、最も直近の日付を計算します。
 	 */
-	this.calcMostRect = function() {
+//	this.calcMostRect = function() {
+//		for (var i = 0; i < this.trash.length; i++) {
+//			//MOD START #3 代替日対応
+//			//this.trash[i].calcMostRect(this);
+//			this.trash[i].calcMostRect(this, null);
+//			//MOD E N D#3 代替日対応
+//		}
+//	}
+	/**
+	 * 各ゴミのカテゴリに対して、最も直近の日付を計算します。
+	 */
+	this.calcMostRect = function(alternateDays) {
 		for (var i = 0; i < this.trash.length; i++) {
-			this.trash[i].calcMostRect(this);
+			this.trash[i].calcMostRect(this, alternateDays);
 		}
 	}
+	//MOD E N D #3 
 	/**
 	 * 休止期間（主に年末年始）かどうかを判定します。
 	 */
@@ -59,6 +71,108 @@ var AreaModel = function() {
 			if (at > bt) return 1;
 			return 0;
 		});
+	}
+}
+
+/**
+ * #3  代替日対応
+ * 代替日を管理する
+ */
+var AlternateDaysModel = function(district) {
+	this.district = district;
+	this.areaMap = new Object(); //地域マップ
+
+	/**
+	 * 数値型を0サプレスする
+	 */
+	function toDoubleDigit(num) {
+		num +="";
+		if (num.length === 1) {
+			num = "0" + num;
+		}
+		return num;
+	}
+	
+	/**
+	 * Date型をYYYYMMDD形式の文字列に変換する
+	 */
+	function getKeyString (date) {
+		var yyyy = date.getFullYear();
+		var mm = toDoubleDigit(date.getMonth() +1);
+		var dd = toDoubleDigit(date.getDate());
+		return yyyy+mm+dd;
+	}
+	
+	/**
+	 * 代替日を登録する
+	 * areaName:地域名
+	 * trashName:ごみの種類
+	 * areaDay:収集日
+	 * alternateDay:代替日
+	 */
+	this.push = function(areaName, trashName, areaDay, alternateDay) {
+		var areaObj = this.areaMap[areaName];
+		if (areaObj == null) {
+			areaObj = new Object();	//地域毎
+		}
+		var trashObj = areaObj[trashName];
+		if (trashObj == null) {
+			trashObj = new Object();	//ごみの種類毎
+		}
+		
+		var alternatedate = null;
+		if (alternateDay != null) {
+			//Date型に変換する
+			var year = parseInt(alternateDay.substr(0, 4));
+			var month = parseInt(alternateDay.substr(4, 2)) - 1;
+			var day = parseInt(alternateDay.substr(6, 2));
+			alternatedate = new Date(year, month, day);
+		}
+		trashObj[areaDay] = alternatedate;
+		areaObj[trashName] = trashObj;
+		this.areaMap[areaName] = areaObj;
+	}
+	/**
+	 * 代替日があるか検査する
+	 * areaName:地域名
+	 * trashName:ごみの種類
+	 * areaDate:収集日(Date型)
+	 * 戻り値: 代替日があればtrue,なければfalse
+	 */
+	this.hasAlternateDay = function(areaName, trashName, areaDate) {
+		var areaObj = this.areaMap[areaName];
+		if (areaObj == null) {
+			return false;
+		}
+		var trashObj = areaObj[trashName];
+		if (trashObj == null) {
+			return false;
+		}
+		var areaDay = getKeyString(areaDate);
+		var alternateDay = trashObj[areaDay];
+		if(alternateDay == null) {
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * 代替日を返却する
+	 * areaName:地域名
+	 * trashName:ごみの種類
+	 * areaDay:収集日
+	 * 戻り値: 代替日があれば代替日、なければnull
+	 */
+	this.find = function(areaName, trashName, areaDay) {
+		var areaObj = this.areaMap[areaName];
+		if (areaObj == null) {
+			return null;
+		}
+		var trashObj = areaObj[trashName];
+		if (trashObj == null) {
+			return null;
+		}
+		var alternateDate = trashObj[getKeyString(areaDay)];
+		return alternateDate;
 	}
 }
 
@@ -152,7 +266,10 @@ var TrashModel = function(_lable, _cell, remarks) {
 	 *このゴミの年間のゴミの日を計算します。
 	 *センターが休止期間がある場合は、その期間１週間ずらすという実装を行っております。
 	 */
-	this.calcMostRect = function(areaObj) {
+	//MOD START #3 代替日対応
+	//this.calcMostRect = function(areaObj) {
+	this.calcMostRect = function(areaObj, alternateDays) {
+	//MOD E N D #3 代替日対応
 		var day_mix = this.dayCell;
 		var result_text = "";
 		var day_list = new Array();
@@ -181,6 +298,19 @@ var TrashModel = function(_lable, _cell, remarks) {
 						d.setTime(date.getTime() + 1000 * 60 * 60 * 24 *
 								((7 + getDayIndex(day_mix[j].charAt(0)) - date.getDay()) % 7) + week * 7 * 24 * 60 * 60 * 1000
 							);
+						//ADD START #3 代替日対応 代替日がある場合、代替日と入れ替える
+						if (alternateDays != null) {
+							if (alternateDays.hasAlternateDay(areaObj.label, this.label, d)) {
+								var alternateDay = alternateDays.find(areaObj.label, this.label, d);
+								if(alternateDay == null) {
+									//代替日の指定がない場合は、収集しない日とする
+									continue;
+								} else {
+									d = alternateDay;	//代替日と入れ替える
+								}
+							}
+						}
+						//ADD E N D #3
 						//年末年始のずらしの対応
 						//休止期間なら、今後の日程を１週間ずらす
 						if (areaObj.isBlankDay(d)) {
@@ -249,6 +379,7 @@ var TrashModel = function(_lable, _cell, remarks) {
 		return day_text;
 	}
 }
+
 /**
 センターのデータを管理します。
 */
@@ -304,6 +435,7 @@ $(function() {
 	var descriptions = new Array();
 	var areaModels = new Array();
 	var remarks = new Array();
+	var alternateDays = null;	//#3 ADD 代替日対応
 	/*   var descriptions = new Array(); */
 	//ADD START #1 地区を追加
 	function getSelectedAreaMasterName() {
@@ -427,6 +559,19 @@ $(function() {
 				area_select_form.change();
 			}); //csvToArray
 		}); //csvToArray
+		//ADD START #3 代替日リストを生成する
+		csvToArray("data/alternate_days.csv", function(tmp) {
+			var alternate_days_label = tmp.shift();
+			alternateDays = new AlternateDaysModel(district);
+			for (var i in tmp) {
+				var row = tmp[i];
+				if(row[0] != alternateDays.district) {
+					continue;//地区が一致するもののみ
+				}
+				alternateDays.push(row[1], row[2], row[3], row[4]);
+			}
+		});//csvToArray
+		//ADD E N D #3
 	}
 	
   /*
@@ -531,7 +676,10 @@ $(function() {
 		var areaModel = areaModels[row_index];
 		var today = new Date();
 		//直近の一番近い日付を計算します。
-		areaModel.calcMostRect();
+		//MOD START #3 代替日対応
+		//areaModel.calcMostRect();
+		areaModel.calcMostRect(alternateDays);
+		//MOD E N D#3 代替日対応
 		//トラッシュの近い順にソートします。
 		areaModel.sortTrash();
 		var accordion_height = $(window).height() / descriptions.length;

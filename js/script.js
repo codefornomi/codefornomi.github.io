@@ -442,14 +442,31 @@ $(function() {
 		return localStorage.getItem("selected_area_master_name");
 	}
 	function setSelectedAreaMasterName(name) {
-		localStorage.setItem("selected_area_master_name", name);
+		try {
+			localStorage.setItem("selected_area_master_name", name);
+		} catch (domException) {
+		}
 	}
 	//ADD E N D #1 地区を追加
+	//ADD START #5
+	function getSelectedAreaMasterNameBefore() {
+		return localStorage.getItem("selected_area_master_name_before");
+	}
+	function setSelectedAreaMasterNameBefore(name) {
+		try {
+			localStorage.setItem("selected_area_master_name_before", name);
+		} catch (domException) {
+		}
+	}
+	//ADD E N D #5
 	function getSelectedAreaName() {
 		return localStorage.getItem("selected_area_name");
 	}
 	function setSelectedAreaName(name) {
-		localStorage.setItem("selected_area_name", name);
+		try {
+			localStorage.setItem("selected_area_name", name);
+		} catch (domException) {
+		}
 	}
 	function csvToArray(filename, cb) {
 		$.get(filename, function(csvdata) {
@@ -823,10 +840,24 @@ $(function() {
 			$("#accordion").html("");
 			$("#select_area").html('<option value="-1">地域を選択してください</option>');
 			setSelectedAreaMasterName("");
-			setSelectedAreaName("");
 			return;
 		}
+		//ADD START #5
+		var checkAreaMasterName = getSelectedAreaMasterName();
+		var checkAreaMasterNameBefore = getSelectedAreaMasterNameBefore();
+		if(checkAreaMasterName != checkAreaMasterNameBefore){
+			$("#accordion").html("");
+			$("#select_area").html('<option value="-1">地域を選択してください</option>');
+			setSelectedAreaName("");
+		}
+		//ADD E N D #5
 		areaModels.length = 0;
+		
+		//ADD START #5
+		setSelectedAreaMasterName(districtModels[row_index].district);
+		setSelectedAreaMasterNameBefore(districtModels[row_index].district);
+		//ADD E N D #5
+		
 		updateAreaList(districtModels[row_index].district);
 	}
 	// リストマスターが選択されたら

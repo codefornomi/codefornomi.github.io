@@ -702,10 +702,10 @@ $(function() {
 		//MOD START #6 自動レイアウト調整が表示しないゴミの種類を含んで計算される問題を修正
 		//var accordion_height = $(window).height() / descriptions.length;
 		var accordion_height = $(window).height() / areaModel.trash.length;
-//		if(descriptions.length>4) {
+		//if(descriptions.length>4) {
 		if(areaModel.trash.length>4) {
 			accordion_height = accordion_height / 4.1;
-//			if (accordion_height>140) {accordion_height = accordion_height / descriptions.length;};
+			//if (accordion_height>140) {accordion_height = accordion_height / descriptions.length;};
 			if (accordion_height>140) {accordion_height = accordion_height / areaModel.trash.length;};
 			if (accordion_height<130) {accordion_height=130;};
 		}

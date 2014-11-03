@@ -840,12 +840,14 @@ $(function() {
 			$("#accordion").html("");
 			$("#select_area").html('<option value="-1">地域を選択してください</option>');
 			setSelectedAreaMasterName("");
+			setSelectedAreaName("");
 			return;
 		}
 		//ADD START #5
 		var checkAreaMasterName = getSelectedAreaMasterName();
 		var checkAreaMasterNameBefore = getSelectedAreaMasterNameBefore();
-		if(checkAreaMasterName != checkAreaMasterNameBefore){
+		if(checkAreaMasterName == checkAreaMasterNameBefore) {
+		} else {
 			$("#accordion").html("");
 			$("#select_area").html('<option value="-1">地域を選択してください</option>');
 			setSelectedAreaName("");

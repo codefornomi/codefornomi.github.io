@@ -72,7 +72,7 @@ var AreaModel = function() {
 			return 0;
 		});
 	}
-}
+};
 
 /**
  * #3  代替日対応
@@ -174,7 +174,7 @@ var AlternateDaysModel = function(district) {
 		var alternateDate = trashObj[getKeyString(areaDay)];
 		return alternateDate;
 	}
-}
+};
 
 /**
   各ゴミのカテゴリを管理するクラスです。
@@ -378,7 +378,7 @@ var TrashModel = function(_lable, _cell, remarks) {
 		day_text += "</ul>";
 		return day_text;
 	}
-}
+};
 
 /**
 センターのデータを管理します。
@@ -812,7 +812,7 @@ $(function() {
 		});
 	}
 	
-	function onChangeSelect(row_index) {　
+	function onChangeSelect(row_index) {
 		if (row_index == -1) {
 			$("#accordion").html("");
 			setSelectedAreaName("");

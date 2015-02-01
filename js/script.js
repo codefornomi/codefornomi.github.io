@@ -1,4 +1,5 @@
 "use strict";
+var ctx = null;	//l20n ADD #11 他言語化対応
 
 //ADD START #1 地区を追加
 var DistrictModel = function() {
@@ -477,10 +478,21 @@ $(function() {
 			csvdata = csvdata.replace(/\r/gm, "");
 			var line = csvdata.split("\n"),
 			ret = [];
+			//ADD START #12 CSVパースライブラリの導入
+			var opt = {
+					quotes: false,
+					delimiter: ",",
+					newline: "\r\n"
+			};
+			//ADD E N D #12
 			for (var i in line) {
 				//空行はスルーする。
 				if (line[i].length == 0) continue;
-				var row = line[i].split(",");
+				//MOD START #12 CSVパースライブラリの導入
+				var csv = new CSV(line[i], opt).parse();
+				//var row = line[i].split(",");
+				ret.push(csv[0]);
+				//MOD E N D #12
 				ret.push(row);
 			}
 			cb(ret);

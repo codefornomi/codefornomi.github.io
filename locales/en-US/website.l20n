@@ -1,5 +1,5 @@
 <about """About 5374.jp""">
-<title """5374.jp Kawasaki-shi""">
+<title """5374.jp Nomi-shi""">
 
 <help """
 The problem of the garbage is serious in all areas.
@@ -32,9 +32,6 @@ sorting order by day and category of the nearest garbage pick up day.
 <setting """Setting""">
 <setting_article """お住まいの地域を選択することで、ゴミ収集日が自動的に更新されます。""">
 
-<caption """提供されるゴミ情報について""">
-<caption_article """川崎市が公開している<u><a href="http://www.city.kawasaki.jp/kurashi/category/24-1-0-0-0-0-0-0-0-0.html" style="color:#000000;">ごみ・リサイクルのデータ</a></u>をオープン川崎/Code for Kawasaki(川崎)が独自に解析しアプリに実装しました。""">
-
 <license """License""">
 <license_article """本アプリの著作権はCode for Kanazawa(金沢)に帰属します。""">
 
@@ -48,17 +45,6 @@ Code for Kanazawa (金沢)は、市民の課題を集め、その課題を整理
 Code for Kanazawa (金沢)は市民のための組織です。行政や民間企業の影響を受けずに中立・公益の立場から物事を判断するよう心がけています。<br><br>
 公式サイト<br>
 <a href="http://www.codeforkanazawa.org/" class="normal">http://www.codeforkanazawa.org/</a>
-""">
-
-<cfx_kawasaki """オープン川崎/Code for Kawasaki(川崎)について""">
-<cfx_kawasaki_article """
-Code for Kawasaki(川崎)は、<a href="http://code4japan.org/" class="normal">Code for Japan </a>のコンセプトに賛同する、<br>
-川崎市の地域社会の向上をITで行うことを目指すコミュニティです<br>
-※ Code for Kawasaki(川崎)は「オープン川崎」が運営母体の分科会です
-""">
-<cfx_kawasaki_page """
-Facebookページ<br>
-<a href="https://www.facebook.com/codeforkawasaki" class="normal">https://www.facebook.com/codeforkawasaki</a>
 """>
 
 

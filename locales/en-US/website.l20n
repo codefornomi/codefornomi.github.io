@@ -49,7 +49,7 @@ Code for Kanazawa (金沢)は市民のための組織です。行政や民間企
 
 
 <!-- JS -->
-<selectward """Select a area""">
+<selectward """Select an area""">
 <selectarea """Select a town""">
 <today """Today""">
 <tomorrow """Tomorrow""">

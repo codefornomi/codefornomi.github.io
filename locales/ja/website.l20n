@@ -9,7 +9,7 @@ Code for Kanazawa(金沢)では、先ずは正しいゴミの捨て方に注目�
 <purpose """目的""">
 <purpose_article """
 「いつ、どのゴミが収集されているのか？」
-例えばお引っ越しをされた場合や、新しく金沢市に住むことになった時、このアプリを使えば、すぐに分かるようにデザインされています。
+例えばお引っ越しをされた場合や、新しく能美市に住むことになった時、このアプリを使えば、すぐに分かるようにデザインされています。
 """>
 
 <howtouse """使い方""">
@@ -21,6 +21,11 @@ Code for Kanazawa(金沢)では、先ずは正しいゴミの捨て方に注目�
 
 <setting """設定""">
 <setting_article """お住まいの地域を選択することで、ゴミ収集日が自動的に更新されます。""">
+
+<caption """提供されるゴミ情報について""">
+<caption_article1 """能美市が公開しているデータからCfKが独自に解析し、アプリに実装しました。""">
+<caption_article2 """公開データ :</br>
+<a href="http://www.city.nomi.ishikawa.jp/seikatsu/26_gomi_calendar_2.html" style="color: #FF0000;text-decoration: underline;">平成27年度ごみ収集カレンダー</a>""">
 
 <license """ライセンスについて""">
 <license_article """本アプリの著作権はCode for Kanazawa(金沢)に帰属します。""">
@@ -34,7 +39,7 @@ Code for Kanazawa (金沢)は、市民の課題を集め、その課題を整理
 私たちは、デザインをして、ソフトウェアコードを書き、課題を解決するサービスを完成させるのです。さらに、そのサービスを提供し続ける力も持ちます。<br><br>
 Code for Kanazawa (金沢)は市民のための組織です。行政や民間企業の影響を受けずに中立・公益の立場から物事を判断するよう心がけています。<br><br>
 公式サイト<br>
-<a href="http://www.codeforkanazawa.org/" class="normal">http://www.codeforkanazawa.org/</a>
+<a href="http://www.codeforkanazawa.org/" style="color: #FF0000;text-decoration: underline;">http://www.codeforkanazawa.org/</a>
 """>
 
 

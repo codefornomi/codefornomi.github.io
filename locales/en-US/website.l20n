@@ -54,8 +54,6 @@ Official Site<br>
 <a href="http://www.codeforkanazawa.org/" style="color: #FF0000;text-decoration: underline;">http://www.codeforkanazawa.org/</a>
 """>
 
-
-
 <!-- JS -->
 <selectward """Select an area""">
 <selectarea """Select a town""">

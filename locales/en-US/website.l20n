@@ -18,7 +18,7 @@ making the name a play on words with numbers.
 This application is designed to be easy to use and understand, with the simple purpose of 
 quickly informing about the correct garbage collection and detailed pick-up schedule for each day of the week.
 This app was designed for people who have moved to a new 
-location within the same city or prefecture, and for those who are new to the city of Kanazawa.
+location within the same city or prefecture, and for those who are new to the city of Nomi.
 """>
 
 <howtouse """How to use""">
@@ -35,7 +35,7 @@ The current garbage type and day of the week is listed from top to bottom.
 the app automatically updates to the current garbage type and date.""">
 
 <caption """For garbage information that is provided.""">
-<caption_article1 """CfK is its own analysis from the data that Nomi-shi is published, I have implemented the app.""">
+<caption_article1 """CfK analyses the data published by Nomi city and implements it in the app.""">
 <caption_article2 """Public data :</br>
 <a href="http://www.city.nomi.ishikawa.jp/seikatsu/26_gomi_calendar_2.html" style="color: #FF0000;text-decoration: underline;">2015 garbage collection calendar</a>""">
 
@@ -47,13 +47,12 @@ the app automatically updates to the current garbage type and date.""">
 Making the world a happier place using code.<br>
 Each area in Japan has various issues, and with it exist many community organizations to resolve them.<br>
 Of all the issues in our neighborhoods, many issues can be resolved through the use of IT and design, but not all communities possess this skill (knowledge).<br><br>
-Code for Kanazawa (CfK), collects issues from citizens and, after sorting and analyzing the issues, members will develop practical software or hardware (plans or methods) to resolve the issue.<br>
+Code for Kanazawa (CfK) collects issues from citizens and, after sorting and analyzing the issues, members will develop practical software or hardware (plans or methods) to resolve the issue.<br>
 Through design and writing software code we offer a complete service to resolve these issues. Furthermore, we possess the power to offer this services continuously.<br><br>
 CfK is organization for citizens. We endeavor to make all decisions from a neutral standpoint of the public good, without influence from government or private businesses.<br><br>
 Official Site<br>
 <a href="http://www.codeforkanazawa.org/" style="color: #FF0000;text-decoration: underline;">http://www.codeforkanazawa.org/</a>
 """>
-
 
 <!-- JS -->
 <selectward """Select an area""">

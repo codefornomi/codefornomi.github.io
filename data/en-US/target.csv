@@ -25,8 +25,12 @@ bulky garbage,bicycles,please bring to Beautification Center,B
 bulky garbage,bamboo or rattan blinds (sudare),please bring to Beautification Center,B
 metals,binoculars (with metal bodies),,B
 combustible,bamboo brooms,if not fitting to garbage bags please dispose as bulky garbage,B
-non-combustible,batteries (dry-cells),,B
-non-combustible,batteries (rechargeable and button cells),please use the vendors' collection system as much as possible,B
+recyclableA,batteries (dry-cells),,B
+recyclableB,batteries (dry-cells),,B
+recyclableC,batteries (dry-cells),,B
+recyclableA,batteries (rechargeable and button cells),,B
+recyclableB,batteries (rechargeable and button cells),,B
+recyclableC,batteries (rechargeable and button cells),,B
 combustible,bathing powders. bathing salts,,B
 combustible,bands (belts),please dispose of buckles as metals,B
 metals,bats (metal),,B
@@ -136,7 +140,9 @@ recyclableC,cans from seaweeds,please rinse with water,C
 bulky garbage,dog houses,please bring to Beautification Center,D
 combustible,diapers （paper. cloth）,please dispose of the excrements,D
 combustible,dehumidifying and dehydrating chemicals,,D
-non-combustible,dry-cell batteries,for Nickel-Cadmium batteries please use vendors collection systems as much as possible ,D
+recyclableA,dry-cell batteries,,D
+recyclableB,dry-cell batteries,,D
+recyclableC,dry-cell batteries,,D
 bulky garbage,dressing tables,please bring to Beautification Center,D
 combustible,drugs (drinkable),,D
 bulky garbage,dehumidifiers （household type）,please empty the tanks and bring to Beautification Center,D
@@ -188,7 +194,9 @@ small electric appliances,flashlights,plese remove batteries,F
 non-combustible,flower vases (glass. earthenware),please wrap in paper and bag,F
 combustible,flowers,please remove soil,F
 combustible,footwear,please dispose safety boots and skates as non-combustible garbage,F
-non-combustible,fluorescent lamps,please put in the box it was sold in. if broken please wrap in paper and bag,F
+recyclableA,fluorescent lamps,please put in the box it was sold in. if broken please wrap in paper and bag,F
+recyclableB,fluorescent lamps,please put in the box it was sold in. if broken please wrap in paper and bag,F
+recyclableC,fluorescent lamps,please put in the box it was sold in. if broken please wrap in paper and bag,F
 combustible,food leftovers and raw garbage,please drain water,F
 vendors,fire extinguishers,plese consult the seller or handling shops,F
 metals,flasks (metal. thermos bottles),,F
@@ -314,7 +322,9 @@ recyclableA,magazines,,M
 metals,mechanical pencils (metal),,M
 combustible,mechanical pencils (plastic),,M
 combustible,mechanical pencils leads,,M
-non-combustible,mercury tonometers,,M
+recyclableA,mercury tonometers,,M
+recyclableB,mercury tonometers,,M
+recyclableC,mercury tonometers,,M
 small electric appliances,microwave ovens,,M
 bulky garbage,motorized wheelchairs,please bring to Beautification Center,M
 bulky garbage,mud (collected while cleaning the garden. etc.),please bring to Beautification Center,M
@@ -525,7 +535,9 @@ small electric appliances,tableware washer and dryer （household type）,,T
 small electric appliances,trouser pressers,,T
 small electric appliances,tablet computers,please delete all data,T
 small electric appliances,thermometers (electric type),,T
-non-combustible,thermometers (mercury type),please wrap in paper and cloth,T
+recyclableA,thermometers (mercury type),please wrap in paper and cloth,T
+recyclableB,thermometers (mercury type),please wrap in paper and cloth,T
+recyclableC,thermometers (mercury type),please wrap in paper and cloth,T
 non-combustible,tiles,,T
 metals,tire chains (metal),rubber ones to combustible garbage,T
 bulky garbage,tires (from bicycles and sports monocycles),please bring to Beautification Center,T
